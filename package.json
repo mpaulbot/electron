@@ -22,7 +22,7 @@
     "productName": "Tough Love Arena",
     "publish": [{
       "provider": "github",
-      "owner": "toughlovearena",
+      "owner": "mpaulbot",
       "repo": "electron"
     }],
     "mac": {
