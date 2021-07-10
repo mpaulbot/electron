@@ -49,6 +49,9 @@ app.on('window-all-closed', function () {
 // https://samuelmeuli.com/blog/2019-04-07-packaging-and-publishing-an-electron-app/#auto-update
 app.on("ready", async () => {
   try {
+    const log = require("electron-log");
+    log.transports.file.level = "debug";
+    autoUpdater.logger = log;
     await autoUpdater.checkForUpdatesAndNotify();
   } catch (err) {
     // Ignore errors thrown because user is not connected to internet
