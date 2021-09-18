@@ -3,7 +3,7 @@
 
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require('electron');
-const autoUpdater = require("electron-updater");
+const { autoUpdater } = require("electron-updater");
 const path = require('path');
 
 function createWindow() {
@@ -53,23 +53,10 @@ app.on("ready", async () => {
     log.transports.file.level = "debug";
     autoUpdater.logger = log;
     await autoUpdater.checkForUpdatesAndNotify();
-    log('finished checking for updates');
   } catch (err) {
     // Ignore errors thrown because user is not connected to internet
     if (err.message !== "net::ERR_INTERNET_DISCONNECTED") {
       throw err;
     }
   }
-});
-
-// https://medium.com/@johndyer24/creating-and-deploying-an-auto-updating-electron-app-for-mac-and-windows-using-electron-builder-6a3982c0cee6
-autoUpdater.on('update-available', () => {
-  const log = require("electron-log");
-  log('update-available');
-  // mainWindow.webContents.send('update_available');
-});
-autoUpdater.on('update-downloaded', () => {
-  // mainWindow.webContents.send('update_downloaded');
-  log('update-downloaded');
-  autoUpdater.quitAndInstall();
 });
