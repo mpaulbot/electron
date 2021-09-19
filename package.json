@@ -1,8 +1,8 @@
 {
   "name": "toughlovearena-electron",
-  "version": "0.58.4",
+  "version": "0.58.5",
   "description": "Create desktop applications for toughlovearena.com",
-  "author": "mpaulweeks",
+  "author": "M. Paul Weeks and Amy Xu",
   "license": "MIT",
   "main": "src/main.js",
   "repository": "github:mpaulbot/electron",
