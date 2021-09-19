@@ -53,6 +53,7 @@ app.on('window-all-closed', function () {
 
 // https://samuelmeuli.com/blog/2019-04-07-packaging-and-publishing-an-electron-app/#auto-update
 app.on("ready", () => {
+  checkForUpdates();
   setInterval(() => {
     checkForUpdates();
   }, 1000 * 60 * 5);
