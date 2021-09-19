@@ -9,6 +9,9 @@ const downloadDist = async (version) => {
   console.log('downloading:', version);
   await deleter.promise([path.tempDist]);
   const latestResp = await fetch(path.remoteDist(version));
+  if (latestResp.status !== 200) {
+    throw new Error('Response status was ' + latestResp.status);
+  }
   const stream = fs.createWriteStream(path.tempDist);
   await new Promise((resolve, reject) => {
     stream.on('error', reject);
