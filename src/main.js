@@ -27,12 +27,14 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
   })
 })
 
@@ -42,7 +44,7 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   // we want to close app, even on mac
   // if (process.platform !== 'darwin') {
-  app.quit()
+  app.quit();
   // }
 })
 
@@ -50,11 +52,14 @@ app.on('window-all-closed', function () {
 // code. You can also put them in separate files and require them here.
 
 // https://samuelmeuli.com/blog/2019-04-07-packaging-and-publishing-an-electron-app/#auto-update
-app.on("ready", async () => {
+app.on("ready", () => {
+  setInterval(() => {
+    checkForUpdates();
+  }, 1000 * 60 * 5);
+});
+
+async function checkForUpdates() {
   try {
-    const log = require("electron-log");
-    log.transports.file.level = "debug";
-    autoUpdater.logger = log;
     await autoUpdater.checkForUpdatesAndNotify();
   } catch (err) {
     // Ignore errors thrown because user is not connected to internet
@@ -62,4 +67,4 @@ app.on("ready", async () => {
       throw err;
     }
   }
-});
+}

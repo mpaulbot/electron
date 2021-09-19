@@ -1,6 +1,6 @@
 {
   "name": "toughlovearena-electron",
-  "version": "0.58.5",
+  "version": "0.58.6",
   "description": "Create desktop applications for toughlovearena.com",
   "author": "M. Paul Weeks and Amy Xu",
   "license": "MIT",
@@ -60,7 +60,6 @@
     ]
   },
   "dependencies": {
-    "electron-log": "^4.4.1",
     "electron-updater": "^4.3.9"
   },
   "devDependencies": {
