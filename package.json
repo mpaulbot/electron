@@ -1,5 +1,5 @@
 {
-  "name": "toughlovearena-namegoeshere",
+  "name": "tla-test-app",
   "version": "0.59.0",
   "description": "Create desktop applications for toughlovearena.com",
   "author": "M. Paul Weeks and Amy Xu",
@@ -19,7 +19,7 @@
   },
   "build": {
     "appId": "com.toughlovearena.desktop",
-    "productName": "Tough Love Arena",
+    "productName": "TLA Test App",
     "publish": [
       {
         "provider": "github",
