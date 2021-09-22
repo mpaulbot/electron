@@ -1,0 +1,20 @@
+on:
+  workflow_run:
+
+jobs:
+  build:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get release
+        id: get_release
+        uses: agners/get-draft-release@v0.1.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          
+      - name: Log outputs
+        run: |
+          echo ${{ get_release.outputs.id }}
