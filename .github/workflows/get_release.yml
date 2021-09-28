@@ -10,13 +10,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Get release
-        id: get_release
-        uses: mpaulweeks/get-latest-draft@v0.6
+        
+      - name: Get latest draft
+        id: get_latest_draft
+        uses: mpaulweeks/get-latest-draft@v0.7
         with:
           GITHUB_TOKEN: ${{ github.token }}
-          
-      - name: Log outputs
-        run: |
-          echo ${{ steps.get_release.outputs.id }}
+
+      - name: Publish the draft
+        uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          release_id: ${{ steps.get_latest_draft.outputs.id }}
