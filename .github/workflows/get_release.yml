@@ -13,7 +13,7 @@ jobs:
 
       - name: Get release
         id: get_release
-        uses: mpaulweeks/get-latest-draft@v0.3
+        uses: mpaulweeks/get-latest-draft@v0.4
         with:
           GITHUB_TOKEN: ${{ github.token }}
           
