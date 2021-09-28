@@ -13,9 +13,9 @@ jobs:
 
       - name: Get release
         id: get_release
-        uses: mpaulweeks/get-latest-draft@v0.1
+        uses: mpaulweeks/get-latest-draft@v0.2
         with:
-          TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
           
       - name: Log outputs
         run: |
