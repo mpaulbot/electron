@@ -13,9 +13,9 @@ jobs:
 
       - name: Get release
         id: get_release
-        uses: bruceadams/get-release@v1.2.3
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: mpaulweeks/get-latest-draft@v0.1
+        with:
+          TOKEN: ${{ github.token }}
           
       - name: Log outputs
         run: |
