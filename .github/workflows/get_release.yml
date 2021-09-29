@@ -13,7 +13,7 @@ jobs:
         
       - name: Get latest draft
         id: get_latest_draft
-        uses: mpaulweeks/get-latest-draft@v0.7
+        uses: mpaulweeks/get-latest-draft@v0.8
         with:
           GITHUB_TOKEN: ${{ github.token }}
 
